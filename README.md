@@ -61,7 +61,7 @@ Um projeto simples e elegante de **Blackjack (21)** desenvolvido com **HTML, CSS
 ## ▶️ Como Rodar Localmente
 
 1. Clone este repositório:
-   ```bash git clone https://github.com/vitor-valentin/https://github.com/vitor-valentin/Projeto-1-Jogo-Blackjack-21.git```
+   ```git clone https://github.com/vitor-valentin/https://github.com/vitor-valentin/Projeto-1-Jogo-Blackjack-21.git```
 
 2. Abra o arquivo index.html no navegador.
 
