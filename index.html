@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link type="text/css" href="style.css" rel="stylesheet" />
+    <title>Jogo - Blackjack</title>
+</head>
+<body>
+    <section class="menu">
+        <div class="mainMenu">
+            <div class="chipsTop">
+                <img src="imgs/chipsMenu.png" />
+            </div>
+            <h2>BLACKJACK</h2>
+            <div class="options">
+                <button id="play">Jogar</button>
+                <button id="rules">Como Jogar</button>
+                <button id="config">Opções</button>
+            </div>
+        </div>
+        
+        <div class="cardsBottom">
+            <img src="imgs/ace_of_clubs.png" class="mCard" />
+            <img src="imgs/ace_of_hearts.png" class="mCard" />
+            <img src="imgs/ace_of_spades.png" class="mCard" />
+        </div>
+    </section>
+
+    <section class="game">
+        <div id="closeBtn" class="closeBtn">✖</div>
+
+        <div class="card-stack">
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+        </div>
+
+        <div class="dealer space">
+            <div class="extraCards">
+                <div class="cardSpot"></div>
+            </div>
+            <div class="cardSpots">
+                <div class="cardSpot"></div>
+                <div class="cardSpot"></div>
+                <label id="dealerPoints">0</label>
+            </div>
+        </div>
+
+        <div class="player space">
+            <div class="extraCards">
+                <div class="cardSpot"></div>
+            </div>
+          
+            <div class="cardSpots">
+                <label id="playerPoints">0</label>
+                <div class="cardSpot"></div>
+                <div class="cardSpot"></div>
+            </div>
+        
+            <div class="chipsSpot">
+                <div class="chip"></div>
+            </div>
+          
+            <p>Total de fichas: <span id="totalChips">0</span></p>
+            <p>Fichas apostadas: <span id="bettedChips">0</span></p>
+        </div>
+
+        <div class="playerOpts">
+            <div class="opts">
+                <button class="btnOpt" id="stand">Parar</button>
+                <button class="btnOpt" id="hit">Pedir</button>
+                <button class="btnOpt" id="double">Dobrar</button>
+            </div>
+        </div>
+
+        <div class="smallMenu">
+            <div class="gameBtn" id="rules">
+                <img src="imgs/help.png" alt="Como jogar" />
+            </div>
+            <div class="gameBtn" id="config">
+                <img src="imgs/settings.png" alt="Configurações" />
+            </div>
+            <div class="gameBtn" id="restart">
+                <img src="imgs/reload.png" alt="Reiniciar jogo" />
+            </div>
+            <div class="gameBtn" id="historyBtn">
+                <img src="imgs/history.png" alt="Histórico" />
+            </div>
+        </div>
+    </section>
+
+    <section class="rules">
+        <div id="closeBtn" class="closeBtn">✖</div>
+        <h1>Como Jogar</h1>
+        <ol>
+            <li>
+                <b>Distribuição das cartas:</b> 
+                O dealer distribui duas cartas para cada jogador e para si mesmo. 
+            </li>
+            <li>
+                <b>Valor das cartas:</b>
+                Cartas de 2 a 10 valem o seu valor nominal, 
+                figuras (Rei, Dama, Valete) valem 10, 
+                e o Ás pode valer 1 ou 11 dependendo do que for mais vatanjoso ao jogador. 
+            </li>
+            <li>
+                <b>Ações do jogador:</b>
+                <ul>
+                    <li>
+                        <b>Pedir:</b>
+                        O jogador pode pedir mais cartas do dealer para tentar chegar a 21.
+                    </li>
+                    <li>
+                        <b>Parar:</b>
+                        O jogador pode parar de pedir cartas se estiver satisfeito com o valor da sua mão. 
+                    </li>
+                    <li>
+                        <b>Dobrar:</b>
+                        O jogador pode dobrar a sua aposta e receber apenas mais uma carta.
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <b>Ações do dealer:</b>
+                Após o jogador pegar todas as suas cartas o dealer vira a carta escondida
+                e pega mais cartas até que sua pontuação seja maior que a do jogador, caso seja
+                um empate o dealer vai decidir se deve arriscar pegar mais uma carda ou parar.
+            </li>
+            <li>
+                <b>Determinação do vencedor:</b>
+                <ul>
+                    <li>
+                        Se o jogador tiver Blackjack (duas cartas somando 21) 
+                        e o dealer não, o jogador ganha uma vez e meia a sua aposta. 
+                    </li>
+                    <li>
+                        Se o jogador e o dealer tiverem Blackjack, a rodada é considerada um empate. 
+                    </li>
+                    <li>
+                        Se o jogador tiver uma mão mais próxima de 21 que o dealer, sem estourar, o jogador vence.
+                    </li>
+                    <li>
+                        Se o jogador ou o dealer estourarem 
+                        (cartas somando mais de 21), perdem a rodada, 
+                        independentemente do outro. 
+                    </li>
+                </ul>
+            </li>
+        </ol>
+    </section>
+
+    <section class="config">    
+        <div id="closeBtn" class="closeBtn">✖</div>
+
+        <div class="configOptions">
+            <h1>Opções</h1>
+        
+            <div class="option">
+              <label for="musicVolume">Música</label>
+              <input type="range" id="musicVolume" min="0" max="100" value="100" />
+            </div>
+        
+            <div class="option">
+              <label for="sfxVolume">Efeitos</label>
+              <input type="range" id="sfxVolume" min="0" max="100" value="100" />
+            </div>
+        
+            <div class="option">
+              <label for="cardBack">Verso das Cartas</label>
+              <div class="card-options">
+                <div class="card-option black" value="Black" id="selected"></div>
+                <div class="card-option red" value="Red"></div>
+                <div class="card-option blue" value="Blue"></div>
+                <div class="card-option green" value="Green"></div>
+                <div class="card-option orange" value="Orange"></div>
+                <div class="card-option purple" value="Purple"></div>
+              </div>
+            </div>
+        
+            <div class="option">
+              <label for="multiplier">Multiplicador de Vitória</label>
+              <input type="number" id="multiplier" min="2" value="2" />
+            </div>
+        
+            <div class="option">
+              <label for="startingChips">Fichas Iniciais</label>
+              <input type="number" id="startingChips" min="500" value="500" />
+            </div>
+
+            <div class="option">
+                <label for="startingChips">Fichas p/ Aposta</label>
+                <input type="number" id="chipsBet" min="50" value="50" />
+              </div>
+        </div>
+    </section>
+
+    <audio id="bgMusic" loop>
+        <source src="sounds/background.mp3" type="audio/mpeg" />
+    </audio>
+
+    <audio id="seClick"><source src="sounds/click.mp3" /></audio>
+    <audio id="seChips"><source src="sounds/chips.mp3" /></audio>
+    <audio id="seDeal"><source src="sounds/deal.mp3" /></audio>
+    <audio id="seFlip"><source src="sounds/flip.mp3" /></audio>
+
+    <div id="notification" class="notification hidden"></div>
+
+    <div id="alertBanner" class="alert-banner hidden"></div>
+
+    <div id="gameOverModal" class="game-over-modal hidden">
+        <div class="game-over-box">
+            <h2>Fim de Jogo</h2>
+            <p>Você ficou sem fichas para apostar.</p>
+            <button id="restartGameBtn">Reiniciar</button>
+        </div>
+    </div>
+
+    <div id="historyPanel" class="history-panel hidden">
+        <div class="history-header">
+            <h3>Histórico de Rodadas</h3>
+            <span id="closeHistory" class="close-history">✖</span>
+        </div>
+        <div id="historyContent" class="history-content"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

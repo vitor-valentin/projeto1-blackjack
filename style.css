@@ -1,0 +1,891 @@
+@font-face{
+    font-family: raniraBold;
+    src: url("fonts/raniraBold.otf");
+}
+
+@font-face{
+    font-family: sindelarBold;
+    src: url("fonts/sindelarBold.otf");
+}
+
+body{
+    margin: 0;
+    box-sizing: border-box;
+    background-color: #1a4e2d;
+}
+
+section{
+    width: 0;
+    overflow: hidden;
+    transition: all 0.6s ease;
+    position: absolute;
+    height: 100vh;
+    top: 0;
+    background-color: #1a4e2d;
+    background-image: 
+    repeating-linear-gradient(45deg, rgba(255,255,255,0.02) 0, rgba(255,255,255,0.02) 1px, transparent 1px, transparent 5px),
+    repeating-linear-gradient(-45deg, rgba(255,255,255,0.015) 0, rgba(255,255,255,0.015) 1px, transparent 1px, transparent 5px);
+    background-blend-mode: overlay;
+    z-index: 5;
+}
+
+section .closeBtn{
+    width: 50px;
+    height: 50px;
+    background-color: #e2c598;
+    border-radius: 50%;
+    position: absolute;
+    top: 20px;
+    left: 30px;
+    display: flex;
+    font-size: 32px;
+    justify-content: center;
+    align-items: center;
+    color: #2f230c;
+    cursor: pointer;
+    font-family: sindelarBold;
+    transition: all 0.3s ease;
+    z-index: 99;
+}
+
+.menu{
+    position: relative;
+    width: 100%;
+    background-color: #1a4e2d;
+    background-image: 
+    repeating-linear-gradient(45deg, rgba(255,255,255,0.02) 0, rgba(255,255,255,0.02) 1px, transparent 1px, transparent 5px),
+    repeating-linear-gradient(-45deg, rgba(255,255,255,0.015) 0, rgba(255,255,255,0.015) 1px, transparent 1px, transparent 5px);
+    background-blend-mode: overlay;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.chipsTop{
+    position: absolute;
+    margin-left: -20vh;
+    margin-top: 2px;
+}
+
+.chipsTop img{
+    width: 136px;
+    height: 294px;
+}
+
+.mainMenu h2{
+    font-family: raniraBold;
+    font-size: 100px;
+    color: #e2c598;
+    margin-bottom: 5vh;
+    cursor: default;
+}
+
+.options{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.options button{
+    font-family: sindelarBold;
+    margin-top: 40px;
+    padding: 25px 110px;
+    background-color: #e2c598;
+    border-radius: 8px;
+    color: #2f230c;
+    font-size: 50px;
+    border: none;
+    border-bottom: 4px solid #938159;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.1);
+}
+
+.options button:hover{
+    box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.1);;
+    transform: translate(3px, 3px);
+}
+
+.cardsBottom{
+    position: fixed;
+    bottom: 300px;
+    right: 300px;
+}
+
+.cardsBottom img{
+    position: absolute;
+    width: 300px;
+    height: auto;
+    transition: transform 0.2s ease;
+}
+
+.mCard:nth-child(1) {
+    transform: rotate(-30deg);
+    left: -100px;
+    top: 60px;
+    z-index: 1;
+}
+
+.mCard:nth-child(2) {
+    transform: rotate(-20deg);
+    left: -50px;
+    top: 20px;
+    z-index: 2;
+}
+.mCard:nth-child(3) {
+    transform: rotate(-10deg);
+    left: 40px;
+    top: -20px;
+    z-index: 3;
+}
+
+.mCard:nth-child(1):hover {
+    transform: rotate(-30deg) translateY(-20px);
+}
+.mCard:nth-child(2):hover {
+    transform: rotate(-20deg) translateY(-20px);
+}
+.mCard:nth-child(3):hover {
+    transform: rotate(-10deg) translateY(-20px);
+}
+
+.closeBtn:hover{
+    transform: scale(1.1);
+}
+
+.card-stack {
+    position: absolute;
+    top: 10vh;
+    right: 20vh;
+    width: 200px;
+    height: 300px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.card-stack:hover{
+    transform: scale(1.05);
+}
+
+.card-stack .card {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url('imgs/cardBackBlack.png'); 
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+    transition: transform 0.3s;
+}
+
+.card-stack .card:nth-child(1) { top: 4px; left: 4px; z-index: 3; }
+.card-stack .card:nth-child(2) { top: 6px; left: 6px; z-index: 2; }
+.card-stack .card:nth-child(3) { top: 8px; left: 8px; z-index: 1; }
+
+.space{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 350px;
+    pointer-events: none;
+}
+
+.dealer{
+    top: 0;
+}
+
+.player{
+    bottom: 0;
+}
+
+.space label{
+    position: absolute;
+    left: 0;
+    width: 100%;
+    pointer-events: none;
+    text-align: center;
+    font-size: 34px;
+    color: #e2c598;
+    font-family: raniraBold;
+}
+
+.player label{
+    top: -10px;
+}
+
+.dealer label{
+    top: auto;
+    bottom: -30px;
+}
+
+.cardSpots{
+    width: 470px;
+    height: 300px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.cardSpot{
+    width: 210px;
+    height: 310px;
+    border: 2px solid #e2c598;
+    border-radius: 15px;
+}
+
+.extraCards{
+    position: absolute;
+    display: flex;
+    width: 50vh;
+    justify-content: left;
+    margin-left: 8vh;   
+    left: 0;
+    top: 27px;
+}
+
+.extraCards .cardSpot{
+    width: 550px;
+}
+
+.chipsSpot{
+    position: absolute;
+    top: -2vh;
+    right: 40vh;
+    width: 200px;
+    height: 200px;
+    border: 2px solid #e2c598;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.player p{
+    color: #2f230c;
+    font-family: sindelarBold;
+    position: absolute;
+    font-size: 20px;
+    width: 300px;
+    
+}
+
+.player p span{
+    color: #e2c598;
+}
+
+.player p:nth-child(4)
+{
+    top: 0;
+    right: 2vh;
+}
+
+.player p:nth-child(5){
+    top: 20px;
+    right: 1vh;
+}
+
+.playerOpts{
+    position: absolute;
+    width: 100%;
+    height: 40px;
+    bottom: 4%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.opts{
+    width: 70vh;
+    display: flex;
+    justify-content: space-between;
+}
+
+.btnOpt{
+    cursor: pointer;
+    background-color: #e2c598;
+    padding: 20px 50px;
+    font-size: 20px;
+    font-family: sindelarBold;
+    border: 0; 
+    color: #2f230c;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    opacity: 0.8;
+}
+
+.btnOpt:hover{
+    transform: scale(1.05);
+    opacity: 1;
+}
+
+.smallMenu{
+    position: absolute;
+    width: 225px;
+    height: 50px;
+    left: 2vh;
+    bottom: 2vh;
+    display: flex;
+    justify-content: space-between;
+    z-index: 11;
+}
+
+.gameBtn{
+    width: 50px;
+    height: 50px;
+    background-color: #e2c598;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.gameBtn:hover{
+    transform: scale(1.1);
+}
+
+.gameBtn img{
+    width: 40px;
+    height: 40px;
+}
+
+.cardContainer{
+    position: absolute;
+    margin-top: 6px;
+    margin-left: 5px;
+    perspective: 1000px;
+    width: 200px;
+    height: 300px;
+    z-index: 10;
+    border-radius: 8px;
+}
+
+.flip{
+    transform: rotateY(180deg);
+}
+
+.playingCard{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.8s;
+}
+
+.cardSide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.cardFront {
+    background-size: cover;
+    background-position: center;
+    transform: rotateY(180deg);
+}
+
+.cardBack {
+    background-size: cover;
+    background-position: center;
+    
+}
+
+.configOptions {
+    border-radius: 15px;
+    padding: 30px 50px;
+    height: 100vh;
+    font-family: sindelarBold;
+    color: #e2c598;
+    overflow-x: scroll;
+}
+  
+.configOptions h1 {
+    text-align: center;
+    font-size: 56px;
+    margin-bottom: 30px;
+    color: #e2c598;
+    font-family: raniraBold;
+}
+  
+.option {
+    margin-top: 50px;
+    margin-bottom: 60px;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+  
+label {
+    margin-bottom: 5px;
+    font-size: 35px;
+    margin-right: 30px;
+    
+}
+
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    cursor: pointer;
+    width: 25rem;
+}
+  
+input[type="range"]:focus {
+    outline: none;
+}
+  
+input[type="range"]::-webkit-slider-runnable-track {
+    background-color: #e2c598;
+    border-radius: 0.5rem;
+    height: 0.5rem;
+}
+  
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    margin-top: -4px; 
+    background-color: #2f230c;
+    border-radius: 1rem;
+    height: 1rem;
+    width: 1rem;
+}
+  
+input[type="range"]:focus::-webkit-slider-thumb {
+    outline: 3px solid #2f230c;
+    outline-offset: 0.125rem;
+}
+  
+input[type="range"]::-moz-range-track {
+    background-color: #e2c598;
+    border-radius: 0.5rem;
+    height: 0.5rem;
+}
+  
+input[type="range"]::-moz-range-thumb {
+    background-color: #2f230c;
+    border: none; 
+    border-radius: 1rem;
+    height: 1rem;
+    width: 1rem;
+}
+  
+input[type="range"]:focus::-moz-range-thumb{
+    outline: 3px solid #2f230c;
+    outline-offset: 0.125rem;
+}
+  
+input[type="range"],
+input[type="number"],
+select {
+    padding: 6px;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+    border: none;
+    border-radius: 10px;
+    background-color: #e2c598;
+    padding: 10px 20px;
+    font-family: 'sindelarBold', serif;
+    font-size: 22px;
+    color: #2f230c;
+    box-shadow: 0 4px #967b54;
+    width: 120px;
+    text-align: center;
+    outline: none;
+    transition: transform 0.2s;
+  }
+  
+  input[type="number"]:hover,
+  input[type="number"]:focus {
+    transform: scale(1.05);
+    box-shadow: 0 3px #967b54;
+  }
+  
+  input[type="number"]::-webkit-outer-spin-button,
+  input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  
+.back-button {
+    margin-top: 25px;
+    width: 100%;
+    padding: 12px;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #eac690;
+    color: #2c1c0d;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px #967b54;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.card-options {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+  
+.card-option {
+    width: 60px;
+    height: 80px;
+    border-radius: 6px;
+    outline: none;
+    cursor: pointer;
+    transition: transform 0.2s, border-color 0.2s;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    box-sizing: border-box;
+}
+
+.card-option.black{
+    background-image: url("imgs/cardBackBlack.png");
+}
+
+.card-option.red{
+    background-image: url("imgs/cardBackRed.png");
+}
+
+.card-option.blue{
+    background-image: url("imgs/cardBackBlue.png");
+}
+
+.card-option.green{
+    background-image: url("imgs/cardBackGreen.png");
+}
+
+.card-option.orange{
+    background-image: url("imgs/cardBackOrange.png");
+}
+
+.card-option.purple{
+    background-image: url("imgs/cardBackPurple.png");
+}
+  
+.card-option#selected {
+    outline: 3px solid #eac690;
+    transform: scale(1.1);
+}
+
+.card-option:hover {
+    outline: 3px solid rgba(226, 197, 152, 0.5);
+    transform: scale(1.15);
+}
+
+.rules{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.rules h1{
+    color: #eac690;
+    font-size: 46px;
+    font-family: raniraBold;
+    position: relative;
+    top: -1vh;
+}
+
+.rules ol{
+    background-color: #153d23;
+    max-width: 80%;
+    overflow-y: auto;
+    background-image: 
+    repeating-linear-gradient(45deg, rgba(255,255,255,0.02) 0, rgba(255,255,255,0.02) 1px, transparent 1px, transparent 5px),
+    repeating-linear-gradient(-45deg, rgba(255,255,255,0.015) 0, rgba(255,255,255,0.015) 1px, transparent 1px, transparent 5px);
+    background-blend-mode: overlay;
+    border-radius: 10px;
+}
+
+.rules ol::-webkit-scrollbar {
+    width: 8px;
+}
+  
+.rules ol::-webkit-scrollbar-thumb {
+    background-color: #b19464;
+    border-radius: 4px;
+}
+
+.rules li b{    
+    color: #e8c892;
+    font-size: 24px;
+}
+
+.rules li{
+    padding: 20px 10px 10px 0;
+    font-family: sindelarBold;
+    font-size: 20px;
+    color: #c9b890;
+}
+
+.chip
+{
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background-image: url("imgs/chip.png");
+    background-size: cover;
+    transition: all 0.5s ease;
+    transform: translate(700px, 700px);
+}
+
+.notification {
+    position: fixed;
+    top: 5vh;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #e2c598;
+    color: #2f230c;
+    padding: 20px 40px;
+    font-family: sindelarBold;
+    font-size: 24px;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    opacity: 0.95;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.notification.hidden {
+    opacity: 0;
+}
+
+.game-over-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(26, 78, 45, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1001;
+}
+
+.game-over-modal.hidden {
+    display: none;
+}
+
+.game-over-box {
+    background-color: #e2c598;
+    padding: 40px 60px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    font-family: 'sindelarBold';
+    color: #2f230c;
+}
+
+.game-over-box h2 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    font-family: 'raniraBold';
+}
+
+.game-over-box p {
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+
+.game-over-box button {
+    padding: 15px 40px;
+    font-size: 22px;
+    background-color: #2f230c;
+    color: #e2c598;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    font-family: 'sindelarBold';
+}
+
+.game-over-box button:hover {
+    transform: scale(1.05);
+}
+
+.alert-banner {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #2f230c;
+    color: #e2c598;
+    border: 2px solid #e2c598;
+    padding: 15px 30px;
+    font-family: sindelarBold;
+    font-size: 22px;
+    border-radius: 8px;
+    z-index: 1000;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+    opacity: 0.95;
+    transition: all 0.3s ease;
+}
+
+.alert-banner.hidden {
+    display: none;
+}
+
+.history-panel {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 350px;
+    height: 100vh;
+    background-color: #1a4e2d;
+    border-left: 2px solid #e2c598;
+    z-index: 1002;
+    display: flex;
+    flex-direction: column;
+    transform: translateX(100%);
+    transition: transform 0.4s ease;
+    font-family: sindelarBold;
+    color: #e2c598;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.3);
+}
+
+.history-panel.visible {
+    transform: translateX(0);
+}
+
+.history-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 2px solid #e2c598;
+}
+
+.history-header h3 {
+    margin: 0;
+    font-size: 26px;
+    font-family: raniraBold;
+}
+
+.close-history {
+    font-size: 26px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.close-history:hover {
+    transform: scale(1.1);
+}
+
+.history-content {
+    padding: 20px;
+    overflow-y: auto;
+    flex-grow: 1;
+    scrollbar-width: thin;
+    scrollbar-color: #b19464 transparent;
+}
+
+.history-entry {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e2c598;
+    font-size: 18px;
+}
+
+.history-content::-webkit-scrollbar {
+    width: 8px;
+}
+  
+.history-content::-webkit-scrollbar-thumb {
+    background-color: #b19464;
+    border-radius: 4px;
+}
+
+@media (max-width: 1366px) {
+    .mainMenu h2 {
+        font-size: 80px;
+    }
+
+    .options button {
+        padding: 20px 80px;
+        font-size: 42px;
+    }
+
+    .chipsTop img {
+        width: 100px;
+        height: auto;
+    }
+
+    .cardsBottom {
+        bottom: 150px;
+        right: 150px;
+    }
+
+    .card-stack {
+        width: 180px;
+        height: 270px;
+        right: 10vh;
+    }
+
+    .extraCards .cardSpot {
+        width: 40vh !important;
+        left: 0;
+    }
+
+    .cardSpots {
+        justify-content: space-around;
+    }
+
+    .chipsSpot {
+        top: 10vh;
+        right: 10vh;
+    }
+
+    .player p {
+        text-align: center;
+        right: 2vh !important;
+    }
+
+    .cardSpot {
+        width: 180px !important;
+        height: 270px !important;
+    }
+
+    .player p {
+        font-size: 18px;
+    }
+
+    .btnOpt {
+        font-size: 18px;
+        padding: 16px 40px;
+    }
+
+    .cardContainer {
+        width: 170px;
+        height: 260px;
+        margin-left: 5px;
+        margin-top: 5px;
+    }
+
+    .card-stack {
+        width: 170px;
+        height: 260px;
+    }
+}
