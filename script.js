@@ -588,6 +588,7 @@ function startRound()
     if (totalChips < betChips) {
         showGameOverModal();
         gameRunning = false;
+        startingRound = false;
         return;
     }
 
